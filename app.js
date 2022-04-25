@@ -18,8 +18,7 @@ app.use(helmet());
 // Set up mongoose connection
 const dev_db_url =
     "mongodb+srv://tutorial-admin:expressTutorial@cluster0.rgvjb.mongodb.net/local_library?retryWrites=true&w=majority";
-const mongoDB =
-    process.env.NODE_ENV === "production" ? process.env.MOGODB_URI : dev_db_url;
+const mongoDB = process.env.MOGODB_URI || dev_db_url;
 const connectionOptions = { useNewUrlParser: true, useUnifiedTopology: true };
 mongoose.connect(mongoDB, connectionOptions);
 const db = mongoose.connection;
