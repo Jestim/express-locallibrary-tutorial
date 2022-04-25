@@ -1,0 +1,18 @@
+extends layout 
+
+block content 
+
+	h1 #[strong Delete bookinstance: #{bookinstance._id}]
+
+	p #[strong Title:] #[a(href=bookinstance.book.url) #{bookinstance.book.title}]
+	p #[strong Imprint:] #{bookinstance.imprint}
+
+	hr
+
+	p #[strong Do you really want to delete this bookinstance?]
+
+	form(method="POST", action="")
+		div.form-group
+			input#bookinstanceid.form-control(type="hidden", name="bookinstanceid", required="true", value=bookinstance._id)
+		
+		button.btn.btn-primary(type=submit) Delete
